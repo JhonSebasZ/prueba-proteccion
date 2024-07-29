@@ -5,30 +5,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Series fibonacci</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Aplicativo de tareas</div>
-		<a th:href="@{/task/add}">Crear tarea</a>
+        <div>Series Fibonacci</div>
+		<a th:href="@{/fibonacci/save}">Generar fibonacci</a>
 		<table border="1">
 			<thead>
-				<th>Nombre</th>
-				<th>Descripcion</th>
-				<th>Estado</th>
-				<th>Modificar</th>
-				<th>Eliminar</th>
-				<th>Completar</th>
+				<th>semilla 1</th>
+				<th>semilla 2</th>
+				<th>Cantidad</th>
+				<th>serie</th>
+				<th>fecha</th>
 			</thead>
 			<tbody>
-				<tr th:each="task: ${tasks}">
-					<td th:text="${task.title}">Nombre</td>
-					<td th:text="${task.description}">descripcion</td>
-					<td th:text="${task.complete ? 'Completa' : 'Incompleta'}"></td>
-					<td><a th:href="@{/task/edit/} + ${task.idTask}" th:text="Modificar"></a></td>
-					<td><a th:href="@{/task/delete/} + ${task.idTask}" th:text="Eliminar"></a></td>
-					<th><a th:if="${!task.complete}" th:href="@{/task/complete/} + ${task.idTask}" th:text="Completar"><a/></th>
+				<tr th:each="serie: ${series}">
+					<td th:text="${serie.seed1}"></td>
+					<td th:text="${serie.seed1}"></td>
+					<td th:text="${serie.count}"></td>
+					<td th:text="${serie.numbers}"></td>
+					<td th:text="${serie.createdAt}"></td>
 				</tr>
 			</tbody>
 		</table>

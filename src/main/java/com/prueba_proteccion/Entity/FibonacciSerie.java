@@ -1,5 +1,7 @@
 package com.prueba_proteccion.Entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,16 +16,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "note")
-public class Task {
+@Table(name="fibonacciserie")
+public class FibonacciSerie {
+	
 	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int idTask;
-	@Column(name = "title")
-	String title;
-	@Column(name = "description")
-	String description;
-	@Column(name = "complete")
-	boolean complete;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private int seed1;
+    private int seed2;
+    private int count;
+
+    @Column(length = 1000, name = "number")
+    private String numbers;
+
+    private LocalDateTime createdAt;
 }
