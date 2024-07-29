@@ -21,7 +21,7 @@ public class FibonacciController {
 	private FibonacciSerieServiceImp fiboImpl;
 	
     @GetMapping("/save")
-    public List<Integer> getFibonacciSeries() {
+    public String getFibonacciSeries() {
         LocalTime currentTime = LocalTime.now();
         
         // obtener el último dígito de los minutos
@@ -32,14 +32,15 @@ public class FibonacciController {
         
         // cantidad de números a generar
         int count = currentTime.getSecond();     
+        fiboImpl.saveFibonacciSeries(seed1, seed2, count);
         
-        return fiboImpl.saveFibonacciSeries(seed1, seed2, count);
+        return "redirect:/fibonacci";
     }
 
     @GetMapping("")
     public String getAllFibonacciSeries(Model model) {
-    	var series = fiboImpl.getAllFibonacciSeries();
-    	model.addAttribute("series", series);
+    	var serie = fiboImpl.getAllFibonacciSeries();
+    	model.addAttribute("series", serie);
 		return "index";
     }
 }
