@@ -20,11 +20,7 @@
         </thead>
         <tbody>
             <tr th:each="serie : ${series}">
-                <td th:text="${serie.seed1}"></td>
-                <td th:text="${serie.seed2}"></td>
-                <td th:text="${serie.count}"></td>
-                <td th:text="${serie.numbers}"></td>
-                <td th:text="${#dates.format(serie.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                
             </tr>
         </tbody>
     </table>
